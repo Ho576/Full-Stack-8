@@ -1,0 +1,65 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+@media (max-width: 2000px )
+{
+    .left-div{
+        width: 38%;
+        
+    }
+
+    .right-div{float: right;}
+}
+@media (max-width: 750px ) {
+    .left-div{
+        width: 100%;
+    }
+    .right-div{
+        clear: both;
+        float: left;
+    }
+    
+}
+
+.left-div{
+   
+    float: left;
+    clear: left;
+    background-color: black;
+    padding-left:50px ;
+}
+.left-div *{
+color: white;
+}
+.left-div img{
+    width: 200px;
+    height: 170px;
+    border-radius: 50%;
+    
+}
+.right-div{
+    
+    width: 55%;
+    
+   
+    
+}
+ul{
+  list-style: none;
+
+}
+i{
+    color: white;
+}
+.skills p,i{
+    display: inline;
+
+}
+*{
+    text-decoration: none;
+}
+
+
+

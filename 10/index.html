@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MY SOLUTION</title>
+
+  
+  <style>
+
+    /*style.css page*/
+
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+
+    .centered-line {
+      width: 100%; 
+      border-top: 1px solid #000; 
+    }
+
+  </style>
+
+</head>
+<body>
+
+  <h1>Add a Movie to Watch List</h1>
+
+  <form id="movieForm">
+
+    <label for="title"><i>Movie Title</i></label>
+    <input type="text" id="title" required>
+    <br/><br/>
+
+
+    <label for="language" ><i>Movie Language</i></label>
+
+    <input type="radio" id="english" name="language" value="English" checked>
+    <label for="english">English</label>
+
+    <input type="radio" id="arabic" name="language" value="العربية">
+    <label for="arabic">العربية</label>
+
+    <br/><br/>
+
+
+    <label for="genre"><i>Movie Genre</i></label>
+
+    <select id="genre" required>
+      <option value="Action">Action</option>
+      <option value="Thriller">Thriller</option>
+      <option value="Comedy">Comedy</option>
+      <option value="Animation">Animation</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <br/><br/>
+
+
+    <input type="checkbox" id="is18" >
+    <label for="is18"><b>This movie is R-Rated(18+)</b></label>
+    <br/><br/><br/>
+
+
+    <input type="submit" value="Add Movie">
+
+
+  </form>
+
+  <br/>
+
+
+  <div class="centered-line"></div>
+
+
+  <h2>The Watch List</h2>
+
+  <table id="movieTable">
+
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Movie Title</th>
+        <th>Movie Language</th>
+        <th>Movie Genre</th>
+        <th>Is it R-Rated?</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <!-- Movie entries will be added here -->
+    </tbody>
+
+  </table>
+
+  
+  <script>
+
+    /*main.js page*/
+
+    const movieForm = document.getElementById('movieForm');
+    const movieTable = document.getElementById('movieTable');
+    let movieIdCounter = 1; // Initialize a counter for movie IDs
+
+    movieForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      // Get input values
+      const title = document.getElementById('title').value;
+      const languages = Array.from(document.querySelectorAll('input[name="language"]:checked')).map(input => input.value).join(', ');
+      const genre = document.getElementById('genre').value;
+      const is18 = document.getElementById('is18').checked;
+      
+
+      // Create a new row in the table
+      const newRow = movieTable.insertRow(-1);
+
+      // Insert cells with movie information
+      const idCell = newRow.insertCell(0);
+      const titleCell = newRow.insertCell(1);
+      const languageCell = newRow.insertCell(2);
+      const genreCell = newRow.insertCell(3);
+      const is18Cell = newRow.insertCell(4);
+      const deleteCell = newRow.insertCell(5);
+
+      // Assign a unique ID to the movie and increment the counter
+      idCell.textContent = movieIdCounter++;
+      titleCell.textContent = title;
+      languageCell.textContent = languages;
+      genreCell.textContent = genre;
+      is18Cell.textContent = is18 ? 'Yes' : 'No';
+
+      // Add a "Delete" button
+      const deleteButton = document.createElement('button');
+      deleteButton.textContent = 'Delete';
+      deleteButton.addEventListener('click', function() {
+        movieTable.deleteRow(newRow.rowIndex);
+      });
+      deleteCell.appendChild(deleteButton);
+
+      // Clear the form fields
+      movieForm.reset();
+
+    });
+
+  </script>
+
+
+</body>
+</html>
+
+
+
+
+

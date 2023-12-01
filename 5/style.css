@@ -1,0 +1,131 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.navbar {
+    font-size: 24px;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.menu {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    width: 200px;
+    border-radius: 5px;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.food-button {
+    display: block;
+    width: 100%;
+    background-color: #666;
+    color: #fff;
+    border: none;
+    padding: 10px 0;
+    margin: 5px 0;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.food-button:hover {
+    background-color: #555;
+}
+
+.recipe-list {
+    flex: 1;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.recipe-card {
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    flex-basis: calc(33.33% - 20px);
+    display: flex;
+    flex-direction: column;
+}
+
+.recipe-card img {
+    max-width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+}
+
+.recipe-card h2 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.read-more-button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-top: auto;
+    transition: background-color 0.3s ease;
+}
+
+.read-more-button:hover {
+    background-color: #555;
+}
+
+/* Media Query for Tablets and Larger Screens */
+@media screen and (min-width: 768px) {
+    main {
+        padding: 20px 40px;
+    }
+
+    .menu {
+        width: 250px;
+    }
+
+    .recipe-card {
+        flex-basis: calc(25% - 20px);
+    }
+}
+
+/* Media Query for Mobile Phones */
+@media screen and (max-width: 480px) {
+    .menu {
+        width: 100%;
+    }
+
+    .recipe-card {
+        flex-basis: calc(100% - 20px);
+    }
+}
